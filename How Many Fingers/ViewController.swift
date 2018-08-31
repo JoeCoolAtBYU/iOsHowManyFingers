@@ -10,9 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var guessText: UITextField!
+    @IBOutlet weak var outcome: UILabel!
+    
+    @IBAction func guessButtonClicked(_ sender: Any) {
+        let diceRoll = String(arc4random_uniform(6))
+        if guessText.text == diceRoll {
+            outcome.text = "You're right!"
+        } else {
+            outcome.text = "Wrong! it was a " + diceRoll + "."
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
